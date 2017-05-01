@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    android:orientation =  "vertical"
+
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="ID"
+            android:id="@+id/ID_tv_access"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:layout_width ="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:id="@+id/ID_et_access"
+            android:hint = "영어,숫자 20글자 미만"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:layout_width ="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/IDdoublecheck_access"
+            android:layout_gravity="center_horizontal"
+            android:padding="0dp"
+            android:src="@drawable/doublecheck_state"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="Passward"
+            android:id="@+id/PW_tv_access"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height="40dp"
+            android:maxLines="1"
+            android:layout_weight="3"
+            android:id="@+id/PW_et_access"
+            android:hint = "영어,숫자 20글자 미만"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="Name"
+            android:id="@+id/Name_tv_access"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height="40dp"
+            android:maxLines="1"
+            android:id="@+id/Name_et_access"
+            android:layout_weight="3"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="E-mail"
+            android:id="@+id/Email_tv_access"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height="40dp"
+            android:maxLines="1"
+            android:id="@+id/Email_et_access"
+            android:layout_weight="3"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+            android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="전공"
+            android:id="@+id/major_tv_access"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height="40dp"
+            android:maxLines="1"
+            android:id="@+id/major_et_access"
+            android:hint = "띄어쓰기 없이 입력하세요"
+            android:layout_weight="3"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="전화번호"
+            android:id="@+id/pmunber_tv_access"
+            android:layout_weight="1" />
+
+        <EditText
+            android:inputType="phone"
+            android:maxLines="1"
+            android:layout_width = "0dp"
+            android:layout_height="40dp"
+            android:id="@+id/pmunber_et_access"
+            android:hint = "000-0000-0000"
+            android:layout_weight="3"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_weight="5">
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom|end"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"/>
+        <ImageButton
+            android:layout_width = "0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/signin_access"
+            android:layout_gravity="center_horizontal"
+            android:padding="0dp"
+            android:src="@drawable/check_state"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"/>
+
+        <ImageButton
+            android:layout_width = "0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/cancel_access"
+            android:layout_gravity="center_horizontal"
+            android:padding="0dp"
+            android:src="@drawable/cancel_state"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

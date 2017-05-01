@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hansangwon.mutoyou">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="MutoYu"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Board" />
+        <activity android:name=".FormerClassActivity" />
+        <activity android:name=".FormerListActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".JoinActivity" />
+        <activity android:name=".FindActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BONOBONO" />
+        <activity android:name=".MyPage" />
+        <activity android:name=".PresentListActivity" />
+        <activity android:name=".PresentClassActivity" />
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".MemberoutActivity" />
+        <activity android:name=".ChangeMemberActivity"></activity>
+    </application>
+
+</manifest>

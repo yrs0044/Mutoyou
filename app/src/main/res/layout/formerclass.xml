@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:orientation="vertical"
+    android:onClick="backtouch"
+    tools:context="com.project.dblab05.softwareproject.com.example.hansangwon.mutoyou.FormerClassActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학년*"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/class_tv_formerclass"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/class_sp_formerclass"
+            android:entries="@array/state"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학년도*"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/year_tv_formerclass"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/year_sp_formerclass"
+            android:entries="@array/year"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="학기*"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:id="@+id/semester_tv_formerclass"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/groupsemester"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="1학기"
+                android:id="@+id/semester1_rb_formerclass" />
+
+                <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2학기"
+                android:id="@+id/semester2_rb_formerclass" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="교과구분*"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/kyogwa_tv_formerclass"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id = "@+id/groupclass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="전공"
+                android:id="@+id/jeongong_rb_formerclass" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교양"
+                android:id="@+id/kyowang_rb_formerclass" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/major_tv_formerclass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="학과"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/kyogwaname_tv_formerclass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="교과목명"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width ="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/find_formerclass"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:src="@drawable/search_state"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*는 필수 입력입니다."
+        android:gravity="center_horizontal"
+        android:id="@+id/note_tv_formerclass"
+        android:layout_weight="0.3" />
+
+
+
+
+</LinearLayout>

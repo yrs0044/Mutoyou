@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="1200dp"
+        android:layout_height="1dp"
+        android:background="#777777"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="교과구분"
+            android:textSize="16dp"
+            android:id="@+id/kyokwa_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="학점"
+            android:textSize="16dp"
+            android:id="@+id/credit_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="전공"
+            android:textSize="16dp"
+            android:id="@+id/major_tv_listview_present_list"
+            android:layout_weight="2" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="교과목명"
+            android:textSize="16dp"
+            android:id="@+id/name_tv_listview_present_list"
+            android:layout_weight="3" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="정원"
+            android:textSize="16dp"
+            android:id="@+id/limit_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="수강인원"
+            android:textSize="16dp"
+            android:id="@+id/number_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="수강률"
+            android:textSize="16dp"
+            android:id="@+id/atrate_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="교수"
+            android:textSize="16dp"
+            android:id="@+id/professor_tv_listview_present_list"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="강의시간및강의실"
+            android:textSize="16dp"
+            android:id="@+id/sitetime_tv_listview_present_list"
+            android:layout_weight="2" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+        <Button
+            android:id="@+id/cart_bt_listview_present_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="담기" />
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#777777"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="1200dp"
+        android:layout_height="1dp"
+        android:background="#777777"/>
+
+
+</LinearLayout>

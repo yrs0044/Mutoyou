@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="year">
+    <item >2011</item>
+    <item >2012</item>
+    <item >2013</item>
+    <item >2014</item>
+    <item >2015</item>
+    <item >2016</item>
+</string-array>
+
+<string-array name="state">
+    <item >전체</item>
+    <item >1학년</item>
+    <item >2학년</item>
+    <item >3학년</item>
+    <item >4학년</item>
+</string-array>
+
+</resources>
