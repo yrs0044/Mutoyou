@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -20,7 +22,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class JoinActivity extends AppCompatActivity {
+public class MemberJoinActivity extends BaseActivity{
     ImageButton checkidbutton;
     ImageButton confirmbutton;
     ImageButton canclebutton;
@@ -32,20 +34,23 @@ public class JoinActivity extends AppCompatActivity {
     EditText phone;
     Boolean CheckId=false;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.access);
-        checkidbutton = (ImageButton)findViewById(R.id.IDdoublecheck_access);
-        confirmbutton = (ImageButton)findViewById(R.id.signin_access);
-        canclebutton = (ImageButton)findViewById(R.id.cancel_access);
-        id = (EditText)findViewById(R.id.ID_et_access);
-        password = (EditText)findViewById(R.id.PW_et_access);
-        name = (EditText)findViewById(R.id.Name_et_access);
-        mail = (EditText)findViewById(R.id.Email_et_access);
-        major = (EditText)findViewById(R.id.major_et_access);
-        phone = (EditText)findViewById(R.id.pmunber_et_access);
+        setContentView(R.layout.activity_signup);
+        bindViews();
+        setupEvents();
 
+    }
+
+
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
         confirmbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,13 +113,16 @@ public class JoinActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     private void insertToDatabase(String id, String password, String name, String mail, String major, String phone){
         class InsertData extends AsyncTask<String, Void, String>{
             ProgressDialog loading;
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(JoinActivity.this, "Please Wait", null, true, true);
+                loading = ProgressDialog.show(MemberJoinActivity.this, "Please Wait", null, true, true);
             }
 
             @Override
@@ -122,7 +130,7 @@ public class JoinActivity extends AppCompatActivity {
                 super.onPostExecute(s);
                 loading.dismiss();
                 if(s.contains("success")) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(JoinActivity.this);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(MemberJoinActivity.this);
                     alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -198,7 +206,7 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(JoinActivity.this, "Please Wait", null, true, true);
+                loading = ProgressDialog.show(MemberJoinActivity.this, "Please Wait", null, true, true);
             }
 
             @Override
@@ -256,7 +264,7 @@ public class JoinActivity extends AppCompatActivity {
     }
     public void CreateAlertDialog(String s)
     {
-        AlertDialog.Builder alert= new AlertDialog.Builder(JoinActivity.this);
+        AlertDialog.Builder alert= new AlertDialog.Builder(MemberJoinActivity.this);
         alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -266,4 +274,20 @@ public class JoinActivity extends AppCompatActivity {
         alert.setMessage(s);
         alert.show();
     }
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        checkidbutton = (ImageButton)findViewById(R.id.IDdoublecheck_access);
+        confirmbutton = (ImageButton)findViewById(R.id.signin_access);
+        canclebutton = (ImageButton)findViewById(R.id.cancel_access);
+        id = (EditText)findViewById(R.id.ID_et_access);
+        password = (EditText)findViewById(R.id.PW_et_access);
+        name = (EditText)findViewById(R.id.Name_et_access);
+        mail = (EditText)findViewById(R.id.Email_et_access);
+        major = (EditText)findViewById(R.id.major_et_access);
+        phone = (EditText)findViewById(R.id.pmunber_et_access);
+
+    }
+
 }

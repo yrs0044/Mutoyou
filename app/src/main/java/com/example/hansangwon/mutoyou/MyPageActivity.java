@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +36,7 @@ import java.util.HashMap;
  * Created by yrs00 on 2016-12-22.
  */
 
-public class MyPage extends AppCompatActivity {
+public class MyPageActivity extends BaseActivity {
     private String myJSON;
     private String TAG_RESULTS = "result";
     private String TAG_MKY = "MKY";
@@ -54,37 +56,29 @@ public class MyPage extends AppCompatActivity {
 
 
 
-    public void CreateAlertDialog2(String s) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(MyPage.this);
-        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(MyPage.this, MyPage.class);
-                startActivity(intent);
-                dialog.dismiss();
-                finish();
-            }
-        });
-        alert.setMessage(s);
-        alert.show();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview_mypage);
+        setContentView(R.layout.activity_mypage);
+        bindViews();
+        setValues();
+        setupEvents();
+    }
 
+    @Override
+    public void setValues() {
+        super.setValues();
         SelectedSubjectList = new ArrayList<>();
-        list = (ListView) findViewById(R.id.listview_mypage);
-
-
-        //// 밑에 있는 아이디를 static 변수로 바꿔줘야됨///
-        getData(MainActivity.userid);
-
-
 
     }
 
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
+        //// 밑에 있는 아이디를 static 변수로 바꿔줘야됨///
+        getData(MainActivity.userid);
+    }
     protected void showList() {
 
         try {
@@ -118,7 +112,7 @@ public class MyPage extends AppCompatActivity {
             }
             //ListView에 ArrayList 입력
             final ListAdapter adapter = new SimpleAdapter(
-                    MyPage.this, SelectedSubjectList, R.layout.listview_mypage_list,
+                    MyPageActivity.this, SelectedSubjectList, R.layout.mypage_list_item,
                     new String[]{TAG_MKY, TAG_CREDIT,TAG_MAJOR,TAG_CLASSNAME, TAG_NOW, TAG_MAX, TAG_DIV, TAG_PROF, TAG_CLASSROOM},
                     new int[]{R.id.kyokwa_tv_listview_mypage_list,
                             R.id.credit_tv_listview_mypage_list,
@@ -138,7 +132,7 @@ public class MyPage extends AppCompatActivity {
                     A.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            AlertDialog.Builder alert = new AlertDialog.Builder(MyPage.this);
+                            AlertDialog.Builder alert = new AlertDialog.Builder(MyPageActivity.this);
                             alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -179,7 +173,7 @@ public class MyPage extends AppCompatActivity {
 
     public void getData(final String ID) {
         class GetDataJSON extends AsyncTask<String, Void, String> {
-            ProgressDialog loading = new ProgressDialog(MyPage.this);
+            ProgressDialog loading = new ProgressDialog(MyPageActivity.this);
 
             @Override
             protected void onPreExecute() {
@@ -241,7 +235,7 @@ public class MyPage extends AppCompatActivity {
     }
     public void Delete(final String MKY, final String credit, final String major, final String classname, final String max, final String now, final String div, final String prof, final String classroom, final String ID) { // ID추가할것
         class GetDataJSON extends AsyncTask<String, Void, String> {
-            ProgressDialog loading = new ProgressDialog(MyPage.this);
+            ProgressDialog loading = new ProgressDialog(MyPageActivity.this);
 
             @Override
             protected void onPreExecute() {
@@ -317,6 +311,26 @@ public class MyPage extends AppCompatActivity {
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(MKY, credit, major, classname, max, now, div, prof, classroom, ID);
+    }
+
+    public void CreateAlertDialog2(String s) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(MyPageActivity.this);
+        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(MyPageActivity.this, MyPageActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        });
+        alert.setMessage(s);
+        alert.show();
+    }
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        list = (ListView) findViewById(R.id.listview_mypage);
     }
 
 }

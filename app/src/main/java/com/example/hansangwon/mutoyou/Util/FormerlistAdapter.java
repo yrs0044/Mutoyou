@@ -1,4 +1,4 @@
-package com.example.hansangwon.mutoyou.Adapter;
+package com.example.hansangwon.mutoyou.Util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-import com.example.hansangwon.mutoyou.ListViewItem;
 import com.example.hansangwon.mutoyou.R;
 
 import java.util.ArrayList;

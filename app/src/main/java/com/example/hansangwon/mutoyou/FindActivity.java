@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,26 +24,34 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class FindActivity extends AppCompatActivity {
+public class FindActivity extends BaseActivity {
 
     ImageButton idcheck;
     ImageButton pwcheck;
     AutoCompleteTextView mail_id;
     AutoCompleteTextView mail_pw;
     AutoCompleteTextView id_pw;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.find_id_pw);
+        setContentView(R.layout.activity_findidpw);
+        bindViews();
+        setValues();
+        setupEvents();
 
-        idcheck = (ImageButton)findViewById(R.id.checkid_find_id_pw);
-        pwcheck = (ImageButton)findViewById(R.id.PW_find_id_pw);
+    }
 
-        mail_id = (AutoCompleteTextView)findViewById(R.id.Email1_et_find_id_pw);
-        mail_pw = (AutoCompleteTextView)findViewById(R.id.Email2_et_find_id_pw);
-        id_pw = (AutoCompleteTextView)findViewById(R.id.ID_et_find_id_pw);
+    @Override
+    public void setValues() {
+        super.setValues();
+    }
 
-
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
         idcheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +71,7 @@ public class FindActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void findidpw(String id, String mail, String choice){
         class InsertData extends AsyncTask<String, Void, String> {
@@ -152,4 +163,16 @@ public class FindActivity extends AppCompatActivity {
         alert.setMessage(s);
         alert.show();
     }
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        idcheck = (ImageButton)findViewById(R.id.checkid_find_id_pw);
+        pwcheck = (ImageButton)findViewById(R.id.PW_find_id_pw);
+        mail_id = (AutoCompleteTextView)findViewById(R.id.Email1_et_find_id_pw);
+        mail_pw = (AutoCompleteTextView)findViewById(R.id.Email2_et_find_id_pw);
+        id_pw = (AutoCompleteTextView)findViewById(R.id.ID_et_find_id_pw);
+    }
+
+
 }

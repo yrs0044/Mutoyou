@@ -18,6 +18,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +40,7 @@ import java.util.HashMap;
  * 담기 버튼 구현하기 / 깜빡이는 애니메이션 구현
  */
 
-public class PresentListActivity extends AppCompatActivity {
+public class PresentListActivity extends BaseActivity {
     private String myJSON;
     private String TAG_RESULTS = "result";
     private String TAG_MKY = "MKY";
@@ -51,41 +53,40 @@ public class PresentListActivity extends AppCompatActivity {
     private String TAG_CLASSROOM = "classroom";
     private String TAG_MAJOR = "major";
 
+    String grade ;
+    String mky ;
+    String major ;
+    String classname;
 
     JSONArray SelectedSubject = null;
     ArrayList<HashMap<String, String>> SelectedSubjectList;
     ListView list;
+    TextView Major_detail;
 
 
-
-    public void CreateAlertDialog2(String s) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(PresentListActivity.this);
-        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        alert.setMessage(s);
-        alert.show();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview_present);
+        setContentView(R.layout.activity_list_present_class);
+        bindViews();
+        setValues();
+        setupEvents();
 
+    }
+
+
+    @Override
+    public void setValues() {
+        super.setValues();
         SelectedSubjectList = new ArrayList<>();
-        list = (ListView) findViewById(R.id.listview_present);
-        TextView Major_detail = (TextView)findViewById(R.id.changetext_present);
+
         Intent intent = getIntent();
         String s = intent.getStringExtra("DATA");
-
-
-        String grade = "";
-        String mky = "";
-        String major = "";
-        String classname = "";
+        grade = "";
+        mky = "";
+        major = "";
+        classname = "";
 
         String[] array = s.split(",", 4);
 
@@ -98,22 +99,14 @@ public class PresentListActivity extends AppCompatActivity {
         if (!array[2].isEmpty()) major = array[2];
         if (!array[3].isEmpty()) classname = array[3];
 
-        Log.i("array1........", grade);
-        Log.i("array2........", mky);
-        Log.i("array3........", major);
-        Log.i("array4........", classname);
-
-        getData(grade, mky, major, classname);
-
-
-
     }
 
-//
-//    public void onBackPressed(){
-//        SelectedSubjectList.clear();
-//        finish();
-//    }
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
+        getData(grade, mky, major, classname);
+    }
+
 
     protected void showList() {
 
@@ -155,7 +148,7 @@ public class PresentListActivity extends AppCompatActivity {
             }
             //ListView에 ArrayList 입력
             final ListAdapter adapter = new SimpleAdapter(
-                    PresentListActivity.this, SelectedSubjectList, R.layout.listview_present_list,
+                    PresentListActivity.this, SelectedSubjectList, R.layout.present_class_item,
                     new String[]{TAG_MKY, TAG_CREDIT,TAG_MAJOR,TAG_CLASSNAME, TAG_NOW, TAG_MAX, TAG_DIV, TAG_PROF, TAG_CLASSROOM},
                     new int[]{R.id.kyokwa_tv_listview_present_list,
                             R.id.credit_tv_listview_present_list,
@@ -231,7 +224,7 @@ public class PresentListActivity extends AppCompatActivity {
 
 
                     String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/search.php";
-                    String data = URLEncoder.encode("grade", "UTF-8") + "=" + URLEncoder.encode(grade, "UTF-8");
+                    String data = URLEncoder.encode("GradeData", "UTF-8") + "=" + URLEncoder.encode(grade, "UTF-8");
                     data += "&" + URLEncoder.encode("MKY", "UTF-8") + "=" + URLEncoder.encode(mky, "UTF-8");
                     data += "&" + URLEncoder.encode("major", "UTF-8") + "=" + URLEncoder.encode(major, "UTF-8");
                     data += "&" + URLEncoder.encode("classname", "UTF-8") + "=" + URLEncoder.encode(classname, "UTF-8");
@@ -357,6 +350,25 @@ public class PresentListActivity extends AppCompatActivity {
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(MKY, credit, major, classname, max, now, div, prof, classroom, ID);
+    }
+
+    public void CreateAlertDialog2(String s) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(PresentListActivity.this);
+        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.setMessage(s);
+        alert.show();
+    }
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        list = (ListView) findViewById(R.id.listview_present);
+        Major_detail = (TextView)findViewById(R.id.changetext_present);
     }
 
 }

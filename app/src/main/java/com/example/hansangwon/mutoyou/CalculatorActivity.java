@@ -1,58 +1,100 @@
 package com.example.hansangwon.mutoyou;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.Data.GradeData;
 
-public class CalculatorActivity extends AppCompatActivity {
-
+public class CalculatorActivity extends BaseActivity {
+    // 스피너 선언//
+    Spinner spinner1;
+    Spinner spinner2;
+    Spinner spinner3;
+    Spinner spinner4;
+    Spinner spinner5;
+    Spinner spinner6;
+    Spinner spinner7;
+    // 스피너 어댑터 선언 //
+    ArrayAdapter adapter1 ;
+    ArrayAdapter adapter2 ;
+    ArrayAdapter adapter3 ;
+    ArrayAdapter adapter4 ;
+    ArrayAdapter adapter5 ;
+    ArrayAdapter adapter6 ;
+    ArrayAdapter adapter7 ;
+    // 이미지 버튼//
+    ImageButton btncal;
+    // 텍스트뷰//
+    TextView Whole_average ;
+    TextView Major_average ;
+    TextView Non_Major_average;
+    TextView Non_Major_Grades;
+    TextView Major_Grades ;
+    //체크 박스
+    CheckBox major1;
+    CheckBox major2;
+    CheckBox major3;
+    CheckBox major4;
+    CheckBox major5;
+    CheckBox major6;
+    CheckBox major7;
+    // 에딧 텍스트
+    EditText egrade1;
+    EditText egrade2;
+    EditText egrade3;
+    EditText egrade4;
+    EditText egrade5;
+    EditText egrade6;
+    EditText egrade7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calculator);
+        setContentView(R.layout.activity_calculator);
+        bindViews();
+        setValues();
+        setupEvents();
+    }
 
-        final Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
-        final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
-        final Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
-        final Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
-        final Spinner spinner5 = (Spinner) findViewById(R.id.spinner5);
-        final Spinner spinner6 = (Spinner) findViewById(R.id.spinner6);
-        final Spinner spinner7 = (Spinner) findViewById(R.id.spinner7);
-        ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+
+    @Override
+    public void setValues() {
+        super.setValues();
+        //스피너 초기화//
+        adapter1 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
-        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter2 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
-        ArrayAdapter adapter3 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter3 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
-        ArrayAdapter adapter4 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter4 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter5 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
-        ArrayAdapter adapter6 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter6 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner6.setAdapter(adapter6);
-        ArrayAdapter adapter7 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
+        adapter7 = ArrayAdapter.createFromResource(this, R.array.gradelist, android.R.layout.simple_spinner_item);
         adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner7.setAdapter(adapter7);
+    }
 
-        ImageButton btncal = (ImageButton) findViewById(R.id.btncal);
-
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
         btncal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,21 +116,14 @@ public class CalculatorActivity extends AppCompatActivity {
                 String score6 = spinner6.getSelectedItem().toString();
                 String score7 = spinner7.getSelectedItem().toString();
 
-                double dscore1 = (double) grade.gradechange(score1);
-                double dscore2 = (double) grade.gradechange(score2);
-                double dscore3 = (double) grade.gradechange(score3);
-                double dscore4 = (double) grade.gradechange(score4);
-                double dscore5 = (double) grade.gradechange(score5);
-                double dscore6 = (double) grade.gradechange(score6);
-                double dscore7 = (double) grade.gradechange(score7);
+                double dscore1 = (double) GradeData.gradechange(score1);
+                double dscore2 = (double) GradeData.gradechange(score2);
+                double dscore3 = (double) GradeData.gradechange(score3);
+                double dscore4 = (double) GradeData.gradechange(score4);
+                double dscore5 = (double) GradeData.gradechange(score5);
+                double dscore6 = (double) GradeData.gradechange(score6);
+                double dscore7 = (double) GradeData.gradechange(score7);
 
-                EditText egrade1 = (EditText) findViewById(R.id.grade1);
-                EditText egrade2 = (EditText) findViewById(R.id.grade2);
-                EditText egrade3 = (EditText) findViewById(R.id.grade3);
-                EditText egrade4 = (EditText) findViewById(R.id.grade4);
-                EditText egrade5 = (EditText) findViewById(R.id.grade5);
-                EditText egrade6 = (EditText) findViewById(R.id.grade6);
-                EditText egrade7 = (EditText) findViewById(R.id.grade7);
 
                 String grade1 = (String) egrade1.getText().toString();
                 String grade2 = (String) egrade2.getText().toString();
@@ -123,13 +158,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
                 try {
-                    CheckBox major1 = (CheckBox) findViewById(R.id.major1);
-                    CheckBox major2 = (CheckBox) findViewById(R.id.major2);
-                    CheckBox major3 = (CheckBox) findViewById(R.id.major3);
-                    CheckBox major4 = (CheckBox) findViewById(R.id.major4);
-                    CheckBox major5 = (CheckBox) findViewById(R.id.major5);
-                    CheckBox major6 = (CheckBox) findViewById(R.id.major6);
-                    CheckBox major7 = (CheckBox) findViewById(R.id.major7);
+
 
                     if (major1.isChecked()) {
                         mascore += (dscore1 * igrade1);
@@ -198,12 +227,6 @@ public class CalculatorActivity extends AppCompatActivity {
                         wa = Double.parseDouble(String.format("%.2f", ((mascore + nmascore) / (nmagrade + magrade))));
                     }
 
-                    TextView Whole_average = (TextView) findViewById(R.id.Whole_average);
-                    TextView Major_average = (TextView) findViewById(R.id.Major_average);
-                    TextView Non_Major_average = (TextView) findViewById(R.id.Non_Major_average);
-                    TextView Non_Major_Grades = (TextView) findViewById(R.id.Non_Major_Grades);
-                    TextView Major_Grades = (TextView) findViewById(R.id.Major_Grades);
-
                     Whole_average.setText(String.valueOf(wa));
                     Major_average.setText(String.valueOf(ma));
                     Non_Major_average.setText(String.valueOf(nma));
@@ -216,6 +239,38 @@ public class CalculatorActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner3 = (Spinner) findViewById(R.id.spinner3);
+        spinner4 = (Spinner) findViewById(R.id.spinner4);
+        spinner5 = (Spinner) findViewById(R.id.spinner5);
+        spinner6 = (Spinner) findViewById(R.id.spinner6);
+        spinner7 = (Spinner) findViewById(R.id.spinner7);
+        btncal = (ImageButton) findViewById(R.id.btncal);
+        Whole_average = (TextView) findViewById(R.id.Whole_average);
+        Major_average = (TextView) findViewById(R.id.Major_average);
+        Non_Major_average = (TextView) findViewById(R.id.Non_Major_average);
+        Non_Major_Grades = (TextView) findViewById(R.id.Non_Major_Grades);
+        Major_Grades = (TextView) findViewById(R.id.Major_Grades);
+        major1 = (CheckBox) findViewById(R.id.major1);
+        major2 = (CheckBox) findViewById(R.id.major2);
+        major3 = (CheckBox) findViewById(R.id.major3);
+        major4 = (CheckBox) findViewById(R.id.major4);
+        major5 = (CheckBox) findViewById(R.id.major5);
+        major6 = (CheckBox) findViewById(R.id.major6);
+        major7 = (CheckBox) findViewById(R.id.major7);
+        egrade1 = (EditText) findViewById(R.id.grade1);
+        egrade2 = (EditText) findViewById(R.id.grade2);
+        egrade3 = (EditText) findViewById(R.id.grade3);
+        egrade4 = (EditText) findViewById(R.id.grade4);
+        egrade5 = (EditText) findViewById(R.id.grade5);
+        egrade6 = (EditText) findViewById(R.id.grade6);
+        egrade7 = (EditText) findViewById(R.id.grade7);
     }
 }

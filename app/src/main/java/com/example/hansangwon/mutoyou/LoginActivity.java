@@ -5,14 +5,13 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -21,7 +20,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     ImageButton loginbutton;
     ImageButton joinbutton;
     ImageButton findbutton;
@@ -31,13 +30,15 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.log_in);
+        setContentView(R.layout.activity_login);
+        bindViews();
+        setupEvents();
+    }
 
-        loginbutton = (ImageButton)findViewById(R.id.login_log_in);
-        joinbutton = (ImageButton)findViewById(R.id.signin_log_in);
-        findbutton = (ImageButton)findViewById(R.id.findIDPW_log_in);
-        id = (AutoCompleteTextView)findViewById(R.id.ID_et_log_in);
-        password = (AutoCompleteTextView)findViewById(R.id.PW_et_log_in);
+
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         joinbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MemberJoinActivity.class);
                 startActivity(intent);
             }
         });
@@ -161,5 +162,19 @@ public class LoginActivity extends AppCompatActivity {
         alert.setMessage(s);
         alert.show();
     }
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+
+        loginbutton = (ImageButton)findViewById(R.id.login_log_in);
+        joinbutton = (ImageButton)findViewById(R.id.signin_log_in);
+        findbutton = (ImageButton)findViewById(R.id.findIDPW_log_in);
+        id = (AutoCompleteTextView)findViewById(R.id.ID_et_log_in);
+        password = (AutoCompleteTextView)findViewById(R.id.PW_et_log_in);
+
+    }
+
+
 }
 

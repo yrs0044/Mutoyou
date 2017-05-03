@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,19 +11,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String userid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -82,16 +82,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_mylecture) {
-            Intent intent = new Intent(MainActivity.this, MyPage.class);
+            Intent intent = new Intent(MainActivity.this, MyPageActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_makerinfo) {
-            Intent intent = new Intent(MainActivity.this, BONOBONO.class);
+            Intent intent = new Intent(MainActivity.this, DeveloperActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_memberleave) {
             Intent intent = new Intent(MainActivity.this, MemberoutActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_profile_arrange) {
-            Intent intent = new Intent(MainActivity.this, ChangeMemberActivity.class);
+            Intent intent = new Intent(MainActivity.this, EditInfoActivity.class);
             startActivity(intent);
         }
 
@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void boardclick(View view) {
-        Intent intent = new Intent(MainActivity.this, Board.class);
+        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
         intent.putExtra("number",1);
         startActivity(intent);
     }
     public void informationclick(View view) {
-        Intent intent = new Intent(MainActivity.this, Board.class);
+        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
         intent.putExtra("number", 2);
         startActivity(intent);
     }

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -19,16 +21,32 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class MemberoutActivity extends AppCompatActivity {
+public class MemberoutActivity extends BaseActivity {
     EditText password;
     Button button;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memberout);
-        password=(EditText)findViewById(R.id.PW_memberout);
-        button = (Button)findViewById(R.id.member_outBtn);
+        bindViews();
+        setValues();
+        setupEvents();
 
+    }
+
+
+    @Override
+    public void setValues() {
+        super.setValues();
+    }
+
+    @Override
+    public void setupEvents() {
+        super.setupEvents();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +54,7 @@ public class MemberoutActivity extends AppCompatActivity {
             }
         });
     }
+
     private void memberout(String id, String password){
         class InsertData extends AsyncTask<String, Void, String> {
             ProgressDialog loading;
@@ -121,5 +140,11 @@ public class MemberoutActivity extends AppCompatActivity {
         });
         alert.setMessage(s);
         alert.show();
+    }
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        password=(EditText)findViewById(R.id.PW_memberout);
+        button = (Button)findViewById(R.id.member_outBtn);
     }
 }

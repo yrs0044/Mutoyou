@@ -1,10 +1,10 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Data;
 
 /**
  * Created by JoJaeDeok on 2016-11-08.
  */
 
-public class grade {
+public class GradeData {
 
     public static double gradechange(String Sgrade) {
         switch (Sgrade) {
