@@ -116,7 +116,7 @@ public class FindActivity extends BaseActivity {
                     String mail = (String)params[1];
                     String choice = (String)params[2];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/findID.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/findID.php";
                     String data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
                     data += "&"+URLEncoder.encode("mail", "UTF-8") + "=" + URLEncoder.encode(mail, "UTF-8");
                     data += "&"+URLEncoder.encode("choice", "UTF-8") + "=" + URLEncoder.encode(choice, "UTF-8");

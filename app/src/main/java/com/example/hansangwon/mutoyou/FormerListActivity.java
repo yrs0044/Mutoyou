@@ -114,7 +114,7 @@ public class FormerListActivity extends BaseActivity implements FormerlistAdapte
                     String major = (String) params[4];
                     String classname = (String) params[5];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/former_search.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/former_search.php";
                     String data = URLEncoder.encode("year", "UTF-8") + "=" + URLEncoder.encode(year, "UTF-8");
                     data += "&"+URLEncoder.encode("sem", "UTF-8") + "=" + URLEncoder.encode(sem, "UTF-8");
                     data += "&"+URLEncoder.encode("GradeData", "UTF-8") + "=" + URLEncoder.encode(grade, "UTF-8");

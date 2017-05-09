@@ -11,6 +11,10 @@
             android:icon="@drawable/icon_2_default"
             android:title="프로필 수정" />
         <item
+            android:id="@+id/nav_SignOut"
+            android:icon="@drawable/icon_3_default"
+            android:title="로그아웃" />
+        <item
             android:id="@+id/nav_memberleave"
             android:icon="@drawable/icon_3_default"
             android:title="회원탈퇴" />

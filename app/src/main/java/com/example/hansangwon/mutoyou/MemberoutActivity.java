@@ -94,7 +94,7 @@ public class MemberoutActivity extends BaseActivity {
                     String id = (String)params[0];
                     String password = (String)params[1];
 
-                    String link="http://hansangwon.ipdisk.co.kr:8001/mutoyou/deletemember.php";
+                    String link="http://hansangwon.ipdisk.co.kr:8000/mutoyou/deletemember.php";
                     String data  = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
                     data  += "&"+URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 

@@ -15,11 +15,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.Data.UserData;
+import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String userid;
+    UserData loginUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +43,10 @@ public class MainActivity extends BaseActivity
 
         TextView IDtext = (TextView)navigationView.getHeaderView(0).findViewById(R.id.headid);
 
-        Intent intent = getIntent();
-        userid = intent.getExtras().getString("userid");
+//        Intent intent = getIntent();
+//        userid = intent.getExtras().getString("userid");
+        loginUser = ContextUtil.getMyUserData(mContext);
+        userid = loginUser.userId;
         IDtext.setText(userid);
     }
 
@@ -61,12 +66,15 @@ public class MainActivity extends BaseActivity
             alert.setNegativeButton("예", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    userid=null;
-                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(intent);
+//                     loginUser = new UserData();
+//                    ContextUtil.clearMyUserData(mContext);
+//                    ContextUtil.setUserData(mContext,loginUser);
+//                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+//                    startActivity(intent);
+                    finish();
                 }
             });
-            alert.setMessage("로그아웃 하시겠습니까?");
+            alert.setMessage("앱을 종료 하시겠습니까?");
             alert.show();
         }
     }
@@ -93,6 +101,28 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_profile_arrange) {
             Intent intent = new Intent(MainActivity.this, EditInfoActivity.class);
             startActivity(intent);
+            finish();
+        } else if (id == R.id.nav_SignOut) {
+            AlertDialog.Builder alert= new AlertDialog.Builder(MainActivity.this);
+            alert.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alert.setNegativeButton("예", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    loginUser = new UserData();
+                    ContextUtil.clearMyUserData(mContext);
+                    ContextUtil.setUserData(mContext,loginUser);
+                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            alert.setMessage("로그아웃 하시겠습니까?");
+            alert.show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -156,7 +156,7 @@ public class MemberJoinActivity extends BaseActivity{
                     String phone = (String)params[5];
 
 
-                    String link="http://hansangwon.ipdisk.co.kr:8001/mutoyou/memberjoin.php";
+                    String link="http://hansangwon.ipdisk.co.kr:8000/mutoyou/memberjoin.php";
                     String data  = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
                     data +=  "&"+ URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
                     data += "&" + URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
@@ -228,7 +228,7 @@ public class MemberJoinActivity extends BaseActivity{
                 try{
                     String id = (String)params[0];
 
-                    String link="http://hansangwon.ipdisk.co.kr:8001/mutoyou/isoverlab.php";
+                    String link="http://hansangwon.ipdisk.co.kr:8000/mutoyou/isoverlab.php";
                     String data  = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
 
                     URL url = new URL(link);

@@ -33,7 +33,7 @@ public class BoardActivity extends AppCompatActivity {
         set.setJavaScriptEnabled(true);
 
         webView.setWebViewClient(new WebViewClient());
-        if(number==1)           webView.loadUrl("http://hansangwon.ipdisk.co.kr:8001/xe/index.php?mid=board");
+        if(number==1)           webView.loadUrl("http://hansangwon.ipdisk.co.kr:8000/xe/index.php?mid=board");
         else if(number==2)      webView.loadUrl("http://m.uos.ac.kr/mkor/html/04_commu/commu.do");
     }
 }

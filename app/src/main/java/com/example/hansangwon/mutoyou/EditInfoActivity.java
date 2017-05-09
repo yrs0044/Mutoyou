@@ -46,7 +46,7 @@ public class EditInfoActivity extends BaseActivity {
     @Override
     public void setValues() {
         super.setValues();
-        getinf(MainActivity.userid);
+        getinf(MainActivity.userid);// ContextUtil의 userData로 바꿔보자
     }
 
     @Override
@@ -104,6 +104,7 @@ public class EditInfoActivity extends BaseActivity {
                 super.onPostExecute(s);
                 loading.dismiss();
 
+                System.out.println(s);
                 String x[] = s.split("/");
 
                 name.setText(x[0]);
@@ -118,7 +119,7 @@ public class EditInfoActivity extends BaseActivity {
                 try {
                     String id = (String) params[0];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/getInfo.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/getInfo.php";
                     String data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
 
                     URL url = new URL(link);
@@ -176,6 +177,7 @@ public class EditInfoActivity extends BaseActivity {
                             Intent intent = new Intent(EditInfoActivity.this, MainActivity.class);
                             intent.putExtra("userid", MainActivity.userid);
                             startActivity(intent);
+                            finish();
                         }
                     });
                     alert.setMessage("회원정보 변경이 완료되었습니다.");
@@ -197,7 +199,7 @@ public class EditInfoActivity extends BaseActivity {
                     String mail = (String) params[5];
                     String phone = (String) params[6];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/rewrite.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/rewrite.php";
                     String data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
                     data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
                     data += "&" + URLEncoder.encode("newpassword", "UTF-8") + "=" + URLEncoder.encode(newpassword, "UTF-8");

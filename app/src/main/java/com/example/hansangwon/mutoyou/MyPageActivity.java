@@ -186,7 +186,7 @@ public class MyPageActivity extends BaseActivity {
                 try {
                     String ID = (String) params[0];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/search_mypage.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/search_mypage.php";
                     String data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(ID, "UTF-8");
 
                     URL url = new URL(link);
@@ -258,7 +258,7 @@ public class MyPageActivity extends BaseActivity {
                     String classroom = (String) params[8];
                     String id = (String)params[9];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/delete_mypage.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/delete_mypage.php";
                     String data = URLEncoder.encode("ID", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
                     data += "&" + URLEncoder.encode("MKY", "UTF-8") + "=" + URLEncoder.encode(mky, "UTF-8");
                     data += "&" + URLEncoder.encode("credit", "UTF-8") + "=" + URLEncoder.encode(credit, "UTF-8");

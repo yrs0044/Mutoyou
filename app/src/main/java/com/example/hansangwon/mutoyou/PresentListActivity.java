@@ -223,7 +223,7 @@ public class PresentListActivity extends BaseActivity {
                     String classname = (String) params[3];
 
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/search.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/search.php";
                     String data = URLEncoder.encode("GradeData", "UTF-8") + "=" + URLEncoder.encode(grade, "UTF-8");
                     data += "&" + URLEncoder.encode("MKY", "UTF-8") + "=" + URLEncoder.encode(mky, "UTF-8");
                     data += "&" + URLEncoder.encode("major", "UTF-8") + "=" + URLEncoder.encode(major, "UTF-8");
@@ -297,7 +297,7 @@ public class PresentListActivity extends BaseActivity {
                     String classroom = (String) params[8];
                     String ID = (String)params[9];
 
-                    String link = "http://hansangwon.ipdisk.co.kr:8001/mutoyou/saving.php";
+                    String link = "http://hansangwon.ipdisk.co.kr:8000/mutoyou/saving.php";
                     String data = URLEncoder.encode("ID", "UTF-8") + "=" + URLEncoder.encode(ID, "UTF-8");
                     data += "&" + URLEncoder.encode("MKY", "UTF-8") + "=" + URLEncoder.encode(mky, "UTF-8");
                     data += "&" + URLEncoder.encode("credit", "UTF-8") + "=" + URLEncoder.encode(credit, "UTF-8");

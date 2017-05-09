@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 /**
  * Created by yrs00 on 2016-12-18.
@@ -50,13 +51,37 @@ public class SplashActivity extends BaseActivity {
         final Intent myint = new Intent(this,LoginActivity.class);
         Handler handler = new Handler(){
             public void handleMessage(Message msg){
-                startActivity(myint);
-                finish();
+//                startActivity(myint);
+//                finish();
+                moveToProperActivity();
             }
         };
 
         handler.sendEmptyMessageDelayed(0,3000);
 
+
+    }
+
+    void moveToProperActivity() {
+
+        if (ContextUtil.getMyUserData(mContext).PKey == -1) {
+
+            // TODO - 로그인 화면으로 이동해야함
+
+
+            Intent intent = new Intent(mContext, LoginActivity.class);
+            startActivity(intent);
+
+        }
+        else {
+
+            // 메인화면으로 이동
+
+            Intent intent = new Intent(mContext, MainActivity.class);
+            startActivity(intent);
+        }
+
+        finish();
 
     }
 
