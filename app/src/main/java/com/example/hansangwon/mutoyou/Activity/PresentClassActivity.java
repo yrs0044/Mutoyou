@@ -1,9 +1,8 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,7 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.R;
 
 /**
  * Created by yrs00 on 2016-12-18.

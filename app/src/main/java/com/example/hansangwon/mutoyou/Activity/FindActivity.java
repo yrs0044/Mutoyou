@@ -1,17 +1,16 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,13 +9,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
 import com.example.hansangwon.mutoyou.Data.UserData;
+import com.example.hansangwon.mutoyou.R;
 import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 public class MainActivity extends BaseActivity

@@ -1,6 +1,5 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,7 +8,7 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.R;
 import com.example.hansangwon.mutoyou.Util.FormerlistAdapter;
 import com.example.hansangwon.mutoyou.Util.ListViewItem;
 

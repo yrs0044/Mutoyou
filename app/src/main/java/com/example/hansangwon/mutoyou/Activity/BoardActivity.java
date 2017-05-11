@@ -1,4 +1,4 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.example.hansangwon.mutoyou.R;
 
 public class BoardActivity extends AppCompatActivity {
 

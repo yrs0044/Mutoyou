@@ -1,4 +1,4 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -6,10 +6,9 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.R;
 import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 /**

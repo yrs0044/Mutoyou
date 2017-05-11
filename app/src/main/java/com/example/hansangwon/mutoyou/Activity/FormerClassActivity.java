@@ -1,8 +1,7 @@
-package com.example.hansangwon.mutoyou;
+package com.example.hansangwon.mutoyou.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
@@ -11,7 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-import com.example.hansangwon.mutoyou.Activity.BaseActivity;
+import com.example.hansangwon.mutoyou.R;
 
 /**
  * Created by hansangwon on 2016-12-18.
