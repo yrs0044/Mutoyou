@@ -155,6 +155,7 @@ public class MemberJoinActivity extends BaseActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                loading.dismiss();
                 Toast.makeText(mContext, "죄송합니다. 서버상태가 불안정합니다. ", Toast.LENGTH_SHORT).show();
 
             }

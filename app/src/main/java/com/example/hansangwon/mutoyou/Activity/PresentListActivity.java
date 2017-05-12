@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hansangwon.mutoyou.R;
+import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -181,7 +182,7 @@ public class PresentListActivity extends BaseActivity {
                                             h.get(TAG_DIV),
                                             h.get(TAG_PROF),
                                             h.get(TAG_CLASSROOM),
-                                            MainActivity.userid);
+                                            ContextUtil.getMyUserData(mContext).userId);
                                     dialog.dismiss();
                                 }
                             });

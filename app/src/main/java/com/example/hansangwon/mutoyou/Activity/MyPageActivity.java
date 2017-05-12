@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.hansangwon.mutoyou.R;
+import com.example.hansangwon.mutoyou.Util.ContextUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,7 +77,7 @@ public class MyPageActivity extends BaseActivity {
     public void setupEvents() {
         super.setupEvents();
         //// 밑에 있는 아이디를 static 변수로 바꿔줘야됨///
-        getData(MainActivity.userid);
+        getData(ContextUtil.getMyUserData(mContext).userId);
     }
     protected void showList() {
 
@@ -147,7 +148,7 @@ public class MyPageActivity extends BaseActivity {
                                             h.get(TAG_DIV),
                                             h.get(TAG_PROF),
                                             h.get(TAG_CLASSROOM),
-                                            MainActivity.userid
+                                            ContextUtil.getMyUserData(mContext).userId
                                     );
                                     dialog.dismiss();
                                 }

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,13 +21,16 @@ import com.example.hansangwon.mutoyou.Util.ContextUtil;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static String userid;
+    public static String userName;
+    public static AppCompatActivity mainActivity;
     UserData loginUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainActivity = this;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,8 +49,8 @@ public class MainActivity extends BaseActivity
 //        Intent intent = getIntent();
 //        userid = intent.getExtras().getString("userid");
         loginUser = ContextUtil.getMyUserData(mContext);
-        userid = loginUser.userId;
-        IDtext.setText(userid);
+        userName = loginUser.userName;
+        IDtext.setText("Welcome "+ userName);
     }
 
     @Override
@@ -100,7 +104,7 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_profile_arrange) {
             Intent intent = new Intent(MainActivity.this, EditInfoActivity.class);
             startActivity(intent);
-            finish();
+
         } else if (id == R.id.nav_SignOut) {
             AlertDialog.Builder alert= new AlertDialog.Builder(MainActivity.this);
             alert.setPositiveButton("취소", new DialogInterface.OnClickListener() {
