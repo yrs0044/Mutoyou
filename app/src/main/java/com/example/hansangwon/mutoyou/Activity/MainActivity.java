@@ -21,7 +21,12 @@ import com.example.hansangwon.mutoyou.Util.ContextUtil;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static String userName;
+    Toolbar toolbar;
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    TextView IDtext;
+
+    public String userName;
     public static AppCompatActivity mainActivity;
     UserData loginUser;
 
@@ -29,29 +34,28 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bindViews();
+        setValues();
 
+    }
+
+    @Override
+    public void setValues() {
+        super.setValues();
         mainActivity = this;
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        TextView IDtext = (TextView)navigationView.getHeaderView(0).findViewById(R.id.headid);
-
 //        Intent intent = getIntent();
 //        userid = intent.getExtras().getString("userid");
         loginUser = ContextUtil.getMyUserData(mContext);
         userName = loginUser.userName;
         IDtext.setText("Welcome "+ userName);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -81,9 +85,6 @@ public class MainActivity extends BaseActivity
             alert.show();
         }
     }
-
-
-
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -155,5 +156,15 @@ public class MainActivity extends BaseActivity
         Intent intent = new Intent(MainActivity.this, BoardActivity.class);
         intent.putExtra("number", 2);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void bindViews() {
+        super.bindViews();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        IDtext = (TextView)navigationView.getHeaderView(0).findViewById(R.id.headid);
     }
 }
